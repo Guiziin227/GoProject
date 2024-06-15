@@ -11,12 +11,9 @@ import (
 func main() {
 
 	config.Carregar()
-
-	fmt.Println(config.StringConexaoBanco)
-	fmt.Println("Rodando a api")
-
 	r := router.Gerar()
 
+	fmt.Printf("Escutando da porta %d", config.Porta)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", config.Porta), r))
 
 }
